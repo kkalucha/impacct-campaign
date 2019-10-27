@@ -1,2 +1,5 @@
 # Ignore virtual environment folder
-/flaskBackend/env
+env/
+.env
+.gitignore
+flaskBackend/__pycache__/
