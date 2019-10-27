@@ -1,5 +1,6 @@
 # Ignore virtual environment folder
 env/
 .env
+.vscode/
 .gitignore
 __pycache__/
