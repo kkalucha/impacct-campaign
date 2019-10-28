@@ -45,39 +45,50 @@ Campaign builder for developed for IMPACCT Brooklyn
   deactivate
   ```
 
-## Getting Started for Mac
+## Getting Started for Mac and Linux
 
 * Create and activate an environment
-  * In Command Prompt, navigate to the flaskBackend folder
+  * In Command Prompt, clone the repo and navigate to the folder
     ```
     ...
+    git clone https://github.com/kkalucha/impacct-campaign.git
     cd impacct-campaign
-    cd flaskBackend
     ```
   * Install virtualenv
     ```
-    pip install virtualenv
+    pip install venv
     ```
   * Create an environment
     ```
-    virtual env
+    venv env
     ```
   * Activate the environment
     ```
-    .\env\Scripts\activate.bat
+    source env/bin/activate
     ```
 
-* Install the necessary modules
-  * Install Flask
+* Pull the database locally
+  * Create the database
     ```
-    pip install Flask
+    createdb no_harassment
     ```
-* Run the application
+  * Migrate the tables
+    ```
+    python manage.py db init
+    python manage.py db migrate
+    python manage.py db upgrade
+    ```
+  * Pull the database
+    ```
+    heroku pg:pull postgresql-silhouetted-52506 no_harassment
+    ```
+
+* Run the server locally
   ```
-  set FLASK_APP=app.py
-  flask run
+  python manage.py runserver
   ```
-* Now head over to [http://127.0.0.1:5000/api/simplelist](http://127.0.0.1:5000/api/simplelist)
+  
+* Now head over to [http://127.0.0.1:5000/getall](http://127.0.0.1:5000/getall)
 * Close the application
   ```
   Ctrl+c
